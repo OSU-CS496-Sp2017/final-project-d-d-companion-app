@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">DnD Companion App</string>
+
+    <string-array name="backgroundPlaceholder">
+        <item>Background</item>
+    </string-array>
+
+    <string-array name="racePlaceholder">
+        <item>Choose Race</item>
+    </string-array>
+
+    <string-array name="subracePlaceholder">
+        <item>Choose Subrace</item>
+    </string-array>
+
+    <string-array name="classPlaceholder">
+        <item>Choose Class</item>
+    </string-array>
+
+    <string-array name="archetypePlaceholder">
+        <item>Choose Archetype</item>
+    </string-array>
+
+    <string-array name="fightingStylePlaceholder">
+        <item>Choose Fighting Style</item>
+    </string-array>
+
+    <string-array name="languagePlaceholder">
+        <item>Choose Language</item>
+    </string-array>
+
+    <string-array name="exoticLanguagePlaceholder">
+        <item>Choose Language</item>
+    </string-array>
+
+    <string-array name="alignmentArray">
+        <item>Alignment</item>
+        <item>Lawful Good</item>
+        <item>Neutral Good</item>
+        <item>Chaotic Good</item>
+        <item>Lawful Neutral</item>
+        <item>True Neutral</item>
+        <item>Chaotic Neutral</item>
+        <item>Lawful Evil</item>
+        <item>Neutral Evil</item>
+        <item>Chaotic Evil</item>
+    </string-array>
+</resources>
