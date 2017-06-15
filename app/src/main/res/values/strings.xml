@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">DnD Companion App</string>
     <string name="theme_key">theme</string>
-    <string name="pref_theme_default">Fighter</string>
+    <string name="theme_default">Fighter</string>
+    <string name="theme_title">Preferred Theme</string>
+    <string name="action_settings">Settings</string>
 
     <string-array name="backgroundPlaceholder">
         <item>Background</item>

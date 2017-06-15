@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.PreferenceFragmentCompat;
+import android.util.Log;
+
 /**
  * Created by brandon on 6/4/2017.
  */
@@ -12,6 +14,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        Log.d("TAG","In onCreatePreferences");
         addPreferencesFromResource(R.xml.prefs);
         EditTextPreference userPref = (EditTextPreference)findPreference(getString(R.string.theme_key));
         userPref.setSummary(userPref.getText());
@@ -19,6 +22,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("TAG","In onResume");
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -31,6 +35,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.theme_key))) {
+            Log.d("TAG","In onSharedPreferenceChanged");
             EditTextPreference userPref = (EditTextPreference)findPreference(key);
             userPref.setSummary(userPref.getText());
         }

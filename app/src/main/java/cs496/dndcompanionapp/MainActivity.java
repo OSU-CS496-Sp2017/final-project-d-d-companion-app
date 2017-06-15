@@ -1,11 +1,17 @@
 package cs496.dndcompanionapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
+import android.support.v4.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +32,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CharacterBuilderActivity.class));
             }
         });
+        // Below is for settings/theme/preference
+        android.preference.PreferenceManager.setDefaultValues(getBaseContext(),R.xml.prefs,false);
+        String theme =
+                SharedPreferences.getString(
+                        getString(R.string.theme_key),
+                        getString(R.string.theme_default)
+                );
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        switch (item.getItemId()) {
+
+            case R.id.action_settings:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
 
