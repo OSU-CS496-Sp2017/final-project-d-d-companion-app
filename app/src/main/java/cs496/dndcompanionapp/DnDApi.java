@@ -1,4 +1,6 @@
 import android.net.Uri;
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,9 +58,10 @@ public class DnDApi {
 				url = url + "equipment/";
 				break;
 			
-			case default:
+			default:
 				Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
 				break;
 		}
+		return null;
 	}
 }

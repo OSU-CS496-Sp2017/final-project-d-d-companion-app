@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="cs496.dndcompanionapp;"/>
+
+    <ListPreference
+        android:defaultValue="@string/pref_theme_default"
+        android:dialogTitle="Default Unit"
+        android:entries="@array/theme"
+        android:entryValues="@array/theme"
+        android:key="@string/theme_key"
+        android:title="Theme"
+        app:summary="%s" />
+
+
+
+
+</PreferenceScreen>
