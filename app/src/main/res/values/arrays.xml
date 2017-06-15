@@ -8,4 +8,49 @@
         <item>Priest</item>
         <item>Wizard</item>
     </string-array>
+
+
+    <string-array name="alignmentArray">
+        <item>Alignment</item>
+        <item>Lawful Good</item>
+        <item>Neutral Good</item>
+        <item>Chaotic Good</item>
+        <item>Lawful Neutral</item>
+        <item>True Neutral</item>
+        <item>Chaotic Neutral</item>
+        <item>Lawful Evil</item>
+        <item>Neutral Evil</item>
+        <item>Chaotic Evil</item>
+    </string-array>
+
+
+    <string-array name="pref_race_values">
+        <item>dragon</item>
+        <item>human</item>
+        <item>elf</item>
+        <item>hElf</item>
+        <item>hling</item>
+        <item>dwarf</item>
+    </string-array>
+
+
+    <string-array name="pref_class_values">
+        <item>barbarian</item>
+        <item>bard</item>
+        <item>druid</item>
+        <item>monk</item>
+        <item>paladin</item>
+        <item>ranger</item>
+        <item>sorcerer</item>
+        <item>warlock</item>
+    </string-array>
+
+    <string-array name="pref_language_values">
+        <item>common</item>
+    </string-array>
+
+    <string-array name="pref_exotic__language_values">
+        <item>abyssal</item>
+    </string-array>
+
 </resources>
