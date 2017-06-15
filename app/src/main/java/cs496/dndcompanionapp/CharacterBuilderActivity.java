@@ -1,9 +1,13 @@
 package cs496.dndcompanionapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 
@@ -13,6 +17,12 @@ import android.widget.TabHost;
 
 public class CharacterBuilderActivity extends AppCompatActivity
 {
+    private EditText charName;
+    private EditText charGender;
+    private EditText charDescription;
+    private EditText charPersonality;
+    private SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +43,39 @@ public class CharacterBuilderActivity extends AppCompatActivity
         setTab(host, "Stats", R.id.stats);
 
 
+        charName = (EditText)findViewById(R.id.editName);
+        charGender = (EditText)findViewById((R.id.editGender));
+        charDescription = (EditText)findViewById(R.id.editDescription);
+        charPersonality = (EditText)findViewById(R.id.editPersonality);
+
+        Button charBuilder = (Button)findViewById(R.id.prevBackground);
+
+        charBuilder.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        Button getData = (Button)findViewById(R.id.nextBackground);
+        getData.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+            }
+
+        });
+
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+
+        super.onDestroy();
     }
 
     //readies a new spinner
@@ -50,4 +93,6 @@ public class CharacterBuilderActivity extends AppCompatActivity
         spec.setIndicator(name);
         host.addTab(spec);
     }
+
+
 }
