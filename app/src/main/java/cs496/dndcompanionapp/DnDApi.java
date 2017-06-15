@@ -10,115 +10,115 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class DnDApi {
-	private final static String TAG = "";
-	
-	private final static String DND_SEARCH_BASE_URL = "http://dnd5eapi.co/api/";
-	
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
-	public static String buildSearchURL (String searchType) {
-		String url = DND_SEARCH_BASE_URL;
 
-		switch(searchType) {
-			case "class": case "classes":
-				url = url + "classes/";
-				break;
+public final class DnDApi {
+	public static final String apiUrl = "http://www.dnd5eapi.co/api/";
 
-			case "subclass": case "subclasses":
-				url = url + "subclasses/";
-				break;
+	/*
+	 * Root is basically querying the first level of the api.  For example, if you
+	 * were looking for a list of classes, you would do a root search of classes.
+	 *
+	 * Verified options:
+	 * classes
+	 * subclasses
+	 * races
+	 * subraces
+	 * ability-scores
+	 *
+	 */
+	public class RootSearchResult {
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-			case "race": case "races":
-				url = url + "races/";
-				break;
-
-			case "subrace": case "subraces":
-				url = url + "subraces/";
-				break;
-
-			case "skills":
-				url = url + "skills/";
-				break;
-
-			case "spell": case "spells":
-				url = url + "spells/";
-				//note: if looking for specific spell, must be an index.
-				break;
-
-			case "proficiencies":
-				url = url + "proficiencies/";
-				//must cast as lowercase
-				//can search by class, index, or keyword (ie: armor, weapons)
-				break;
-
-			case "languages":
-				url = url + "languages/";
-				break;
-
-			case "equipment":
-				url = url + "equipment/";
-				break;
-
-			default:
-				Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
-				break;
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
 		}
-		Log.d(TAG, "API root query url: " + url);
-		return url;
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+	}
+	public class RootList {
+		public Integer count;
+		public List<RootSearchResult> results = null;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+	}
+	public interface OptionsForSelectionList {
+		@GET("{root}/")
+		Call<List<RootSearchResult>> listClasses(@Path("root") String listSearch);
 	}
 
 
-	public static String buildSearchURL (String query, String searchType) {
-		String url = DND_SEARCH_BASE_URL;
-		
-		switch(searchType) {
-			case "class": case "classes":
-				url = url + "classes/";
-				break;
-				
-			case "subclass": case "subclasses":
-				url = url + "subclasses/";
-				break;
-				
-			case "race": case "races":
-				url = url + "races/";
-				break;
-			
-			case "subrace": case "subraces":
-				url = url + "subraces/";
-				break;
-			
-			case "skills":
-				url = url + "skills/";
-				break;
-				
-			case "spell": case "spells":
-				url = url + "spells/";
-				//note: if looking for specific spell, must be an index.
-				break;
-				
-			case "proficiencies":
-				url = url + "proficiencies/";
-				//must cast as lowercase
-				//can search by class, index, or keyword (ie: armor, weapons)
-				break;
-				
-			case "languages":
-				url = url + "languages/";
-				break;
-				
-			case "equipment":
-				url = url + "equipment/";
-				break;
-			
-			default:
-				Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
-				break;
+
+	public class LanguageDetail {
+		public String id;
+		public Integer index;
+		public String name;
+		public String type;
+		public List<String> typicalSpeakers = null;
+		public String script;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
 		}
 
-		url = url + query;
-		Log.d(TAG, "URL with query: " + url);
-		return url;
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
 	}
+	public interface LanguageDetails {
+		@GET("languages/{languageIndex}")
+		Call<List<LanguageDetail>> languageDetailsCall(@Path("languageIndex") int lang);
+	}
+
+
+
+	//races/{index}
+
+
+	//subraces/{index or race}
+
+	//classes/{index or class}
+
+	//subclasses (can do /subclasses/num or /subclasses/class)
+
+	//equipment/{index}
+
+	//spell data
+
+
+	//skills/{index}
+
+
+	//proficiencies/{index or class}
+
+
+
+
+
 }
+
+
+
+
