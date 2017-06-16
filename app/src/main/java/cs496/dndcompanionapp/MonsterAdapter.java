@@ -41,8 +41,7 @@ public class MonsterAdapter extends RecyclerView.Adapter<MonsterAdapter.monsterH
         holder.bind(monster);
     }
 
-    class monsterHolder extends RecyclerView.ViewHolder
-    {
+    class monsterHolder extends RecyclerView.ViewHolder {
         private TextView monsterNameView;
         private TextView monsterACView;
         private TextView monsterWillView;
