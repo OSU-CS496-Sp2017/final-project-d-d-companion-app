@@ -10,6 +10,7 @@ public class CharacterSubrace {
     public String _id;
     public String index;
     public String name;
-    @SerializedName("hit_die") public int hitDie;
+    @SerializedName("ability_bonuses") public int[] abilityBonus;
+    public String desc;
     public String url;
 }
