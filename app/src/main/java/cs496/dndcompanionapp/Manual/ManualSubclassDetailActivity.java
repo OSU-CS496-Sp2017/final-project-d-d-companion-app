@@ -64,7 +64,7 @@ public class ManualSubclassDetailActivity extends AppCompatActivity {
 
                     name.setText(response.body().name);
                     flavorText.setText(response.body().subclass_flavor);
-                    desc.setText(response.body().desc);
+                    desc.setText(response.body().desc.get(0));
 
                 }
 
