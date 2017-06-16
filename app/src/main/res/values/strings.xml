@@ -25,6 +25,8 @@
     <string name="pref_weight_key">weight_key</string>
     <string name="pref_weight_title">Weight</string>
 
+    <string name="pref_background_title">Background</string>
+    <string name="pref_background_key">background_key</string>
     <string-array name="backgroundPlaceholder">
         <item>Background</item>
     </string-array>

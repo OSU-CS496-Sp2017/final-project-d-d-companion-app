@@ -1,9 +1,10 @@
 package cs496.dndcompanionapp;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,13 +16,23 @@ import android.widget.TabHost;
  * Created by Sanlador on 6/10/2017.
  */
 
-public class CharacterBuilderActivity extends AppCompatActivity
+public class CharacterBuilderActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
 {
     private EditText charName;
     private EditText charGender;
     private EditText charDescription;
     private EditText charPersonality;
-    private SQLiteDatabase db;
+    public String name;
+    public String Class;
+    public int buyPoints;
+    public int lvlPoints;
+    public int str;
+    public int con;
+    public int dex;
+    public int wis;
+    public int intel;
+    public int cha;
+    public String[] prof = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,5 +105,14 @@ public class CharacterBuilderActivity extends AppCompatActivity
         host.addTab(spec);
     }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+        name = sharedPreferences.getString(getString(R.string.pref_name_key), "Bardicus");
+        Class = sharedPreferences.getString(getString(R.string.pref_class_key), getString(R.string.pref_class_default));
+        charName.setText(name);
+
+        Log.d("Test", name);
+    }
 
 }
