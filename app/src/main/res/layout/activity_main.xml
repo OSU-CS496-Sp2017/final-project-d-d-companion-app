@@ -7,18 +7,68 @@
         android:id="@+id/searchManual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="Search Manual" />
 
     <Button
         android:id="@+id/goToChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="Create New Character Sheet" />
 
     <Button
         android:id="@+id/createMonster"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:text="Create New Monster" />
+
+
+    <TextView
+        android:id="@+id/characterListLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Previous Characters"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:labelFor="@id/characterList" />
+    <LinearLayout
+        android:id="@+id/characterList"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/offGrey"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/monsterListLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Previous Monsters"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:labelFor="@id/monsterList" />
+    <LinearLayout
+        android:id="@+id/monsterList"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/offGrey"
+        android:orientation="vertical"
+        android:>
+
+    </LinearLayout>
 
 </LinearLayout>
