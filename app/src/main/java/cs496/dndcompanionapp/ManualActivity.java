@@ -24,18 +24,42 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
                 getString(R.string.theme_default)
         ));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.search_manual_activity);
 
-        Button classes = (Button) findViewById(R.id.classes);
-        //classes.setOnClickListener(this);
-
+        Button classes = (Button) findViewById(R.id.btnViewClassInfo);
+        Button subclasses = (Button) findViewById(R.id.btnViewSubclassInfo);
+        Button races = (Button) findViewById(R.id.btnViewRaceInfo);
+        Button subraces= (Button) findViewById(R.id.btnViewSubraceInfo);
+        Button skills = (Button) findViewById(R.id.btnViewSkillInfo);
+        Button spells = (Button) findViewById(R.id.btnViewSpellInfo);
+        classes.setOnClickListener(this);
+        subclasses.setOnClickListener(this);
+        races.setOnClickListener(this);
+        subraces.setOnClickListener(this);
+        skills.setOnClickListener(this);
+        spells.setOnClickListener(this);
     }
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
 
-                case R.id.classes:
+                case R.id.btnViewClassInfo:
                     startActivity(new Intent(ManualActivity.this, ManualClassActivity.class));
+                    break;
+                case R.id.btnViewSubclassInfo:
+                    startActivity(new Intent(ManualActivity.this, ManualSubclassActivity.class));
+                    break;
+                case R.id.btnViewRaceInfo:
+                    startActivity(new Intent(ManualActivity.this, ManualRaceActivity.class));
+                    break;
+                case R.id.btnViewSubraceInfo:
+                    startActivity(new Intent(ManualActivity.this, ManualSubraceActivity.class));
+                    break;
+                case R.id.btnViewSkillInfo:
+                    startActivity(new Intent(ManualActivity.this, ManualSkillActivity.class));
+                    break;
+                case R.id.btnViewSpellInfo:
+                    startActivity(new Intent(ManualActivity.this, ManualSpellActivity.class));
                     break;
 /*
                 case R.id.goToManual:

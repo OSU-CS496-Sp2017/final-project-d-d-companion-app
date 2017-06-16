@@ -7,11 +7,11 @@
         android:id="@+id/goToChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Monster Generator" />
     <Button
         android:id="@+id/goToManual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button2" />
+        android:text="Manual" />
 
 </LinearLayout>
