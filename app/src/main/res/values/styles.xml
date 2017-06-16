@@ -1,17 +1,34 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Bard" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/BardPrimary</item>
+        <item name="colorPrimaryDark">@color/BardSecondary</item>
+        <item name="colorAccent">@color/BardAccent</item>
+
+
         <item name="preferenceTheme">
             @style/PreferenceThemeOverlay.v14.Material
         </item>
 
         <!-- Remove shadow under action bar for Android < 5.0 -->
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/BardBackground</item>
+    </style>
+    <style name="Barbarian" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/BarbarianPrimary</item>
+        <item name="colorPrimaryDark">@color/BarbarianSecondary</item>
+        <item name="colorAccent">@color/BarbarianAccent</item>
+
+        <item name="preferenceTheme">
+            @style/PreferenceThemeOverlay.v14.Material
+        </item>
+
+        <!-- Remove shadow under action bar for Android < 5.0 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">?android:attr/colorActivatedHighlight</item>
     </style>
 
 </resources>

@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="BardPrimary">#5f0f40</color>
+    <color name="BardSecondary">#c42f4a</color>
+    <color name="BardAccent">#FF4081</color>
+    <color name="BardBackground">#eaa556</color>
+
+    <color name="BarbarianPrimary">#803261</color>
+    <color name="BarbarianSecondary">#C42F4A</color>
+    <color name="BarbarianAccent">#3745af</color>
+    <color name="BarbarianBackground">#d9620c</color>
+
+    <color name="ClericPrimary">#3F51B5</color>
+    <color name="ClericSecondary">#303F9F</color>
+    <color name="ClericAccent">#FF4081</color>
+    <color name="ClericBackground">#FF4081</color>
+
+    <color name="DruidPrimary">#3F51B5</color>
+    <color name="DruidSecondary">#303F9F</color>
+    <color name="DruidAccent">#FF4081</color>
+    <color name="DruidBackground">#FF4081</color>
+
+    <color name="FighterPrimary">#3F51B5</color>
+    <color name="FighterSecondary">#303F9F</color>
+    <color name="FighterAccent">#FF4081</color>
+    <color name="FighterBackground">#FF4081</color>
+
+    <color name="MonkPrimary">#3F51B5</color>
+    <color name="MonkSecondary">#303F9F</color>
+    <color name="MonkAccent">#FF4081</color>
+    <color name="MonkBackground">#FF4081</color>
+
+    <color name="PaladinPrimary">#3F51B5</color>
+    <color name="PaladinSecondary">#303F9F</color>
+    <color name="PaladinAccent">#FF4081</color>
+    <color name="PaladinBackground">#FF4081</color>
+
+    <color name="RangerPrimary">#3F51B5</color>
+    <color name="RangerSecondary">#303F9F</color>
+    <color name="RangerAccent">#FF4081</color>
+    <color name="RangerBackground">#FF4081</color>
+
+    <color name="RoguePrimary">#3F51B5</color>
+    <color name="RogueSecondary">#303F9F</color>
+    <color name="RogueAccent">#FF4081</color>
+    <color name="RogueBackground">#FF4081</color>
+
+    <color name="SorcererPrimary">#3F51B5</color>
+    <color name="SorcererSecondary">#303F9F</color>
+    <color name="SorcererAccent">#FF4081</color>
+    <color name="SorcererBackground">#FF4081</color>
+
+    <color name="WarlockPrimary">#3F51B5</color>
+    <color name="WarlockSecondary">#303F9F</color>
+    <color name="WarlockAccent">#FF4081</color>
+    <color name="WarlockBackground">#FF4081</color>
+
+    <color name="WizardPrimary">#3F51B5</color>
+    <color name="WizardSecondary">#303F9F</color>
+    <color name="WizardAccent">#FF4081</color>
+    <color name="WizardBackground">#FF4081</color>
+
+
 </resources>
