@@ -121,12 +121,6 @@ public class CharacterBuilderActivity extends AppCompatActivity implements Share
 
         Log.d("Test", name);
     }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
