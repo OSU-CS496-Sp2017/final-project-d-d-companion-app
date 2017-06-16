@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import cs496.dndcompanionapp.DnDApi;
 import cs496.dndcompanionapp.R;
 import cs496.dndcompanionapp.SettingsActivity;
@@ -29,7 +31,8 @@ public class ManualSubclassDetailActivity extends AppCompatActivity {
 
     private DnDApi.DnDApiService dndApi;
     private TextView name;
-    private TextView hitDie;
+    private TextView flavorText;
+    private TextView desc;
 
 
     @Override
@@ -44,18 +47,25 @@ public class ManualSubclassDetailActivity extends AppCompatActivity {
         setContentView(R.layout.manual_subclass_detail);
 
         name = (TextView) findViewById(R.id.subclassName);
+        flavorText = (TextView) findViewById(R.id.subclassFlavor);
+        desc = (TextView) findViewById(R.id.subclassDesc);
 
-
+        Log.d("TAG","Right before intent stuff");
         Intent intent = getIntent();
         if (intent != null) {
             String subclassId = intent.getStringExtra("subclassId");
+            Log.d("TAG","subclassId value:  " + subclassId);
 
             dndApi = new DnDApi().createService();
             Call<CharacterSubclass> call = dndApi.getCharacterSubclasses(subclassId);
             call.enqueue(new Callback<CharacterSubclass>() {
                 @Override
                 public void onResponse(Call<CharacterSubclass> call, Response<CharacterSubclass> response) {
+
                     name.setText(response.body().name);
+                    flavorText.setText(response.body().subclass_flavor);
+                    desc.setText(response.body().desc);
+
                 }
 
                 @Override

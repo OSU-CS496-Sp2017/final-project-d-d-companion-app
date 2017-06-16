@@ -103,6 +103,7 @@ public class DnDApi {
             return value;
         }
     }
+
     public enum CharacterRaces {
         DWARF("1"),
         ELF("2"),
