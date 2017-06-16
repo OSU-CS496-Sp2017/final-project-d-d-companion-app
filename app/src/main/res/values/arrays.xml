@@ -11,46 +11,45 @@
 
 
     <string-array name="alignmentArray">
-        <item>Alignment</item>
-        <item>Lawful Good</item>
-        <item>Neutral Good</item>
-        <item>Chaotic Good</item>
-        <item>Lawful Neutral</item>
-        <item>True Neutral</item>
-        <item>Chaotic Neutral</item>
-        <item>Lawful Evil</item>
-        <item>Neutral Evil</item>
-        <item>Chaotic Evil</item>
+        <item>@string/pref_alignment_LG</item>
+        <item>@string/pref_alignment_NG</item>
+        <item>@string/pref_alignment_CG</item>
+        <item>@string/pref_alignment_LN</item>
+        <item>@string/pref_alignment_TN</item>
+        <item>@string/pref_alignment_CN</item>
+        <item>@string/pref_alignment_LE</item>
+        <item>@string/pref_alignment_NE</item>
+        <item>@string/pref_alignment_CE</item>
     </string-array>
 
 
     <string-array name="pref_race_values">
-        <item>dragon</item>
-        <item>human</item>
-        <item>elf</item>
-        <item>hElf</item>
-        <item>hling</item>
-        <item>dwarf</item>
+        <item>@string/dragon</item>
+        <item>@string/human</item>
+        <item>@string/elf</item>
+        <item>@string/hElf</item>
+        <item>@string/hling</item>
+        <item>@string/dwarf</item>
     </string-array>
 
 
     <string-array name="pref_class_values">
-        <item>barbarian</item>
-        <item>bard</item>
-        <item>druid</item>
-        <item>monk</item>
-        <item>paladin</item>
-        <item>ranger</item>
-        <item>sorcerer</item>
-        <item>warlock</item>
+        <item>@string/barbarian</item>
+        <item>@string/bard</item>
+        <item>@string/druid</item>
+        <item>@string/monk</item>
+        <item>@string/paladin</item>
+        <item>@string/ranger</item>
+        <item>@string/sorcerer</item>
+        <item>@string/warlock</item>
     </string-array>
 
     <string-array name="pref_language_values">
-        <item>common</item>
+        <item>@string/common</item>
     </string-array>
 
     <string-array name="pref_exotic__language_values">
-        <item>abyssal</item>
+        <item>@string/abyssal</item>
     </string-array>
 
 </resources>
