@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         charBuilder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CharacterBuilderActivity.class));
+                startActivity(new Intent(MainActivity.this, MonsterGenActivity.class));
             }
         });
         // Below is for settings/theme/preference
