@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/monsterNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Monster Name"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/CRView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:text="CR:"
+        android:textSize="25sp"
+        app:layout_constraintRight_toLeftOf="@+id/CRViewNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CRViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="10"
+        android:textSize="24sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ACView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="AC:"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monsterNameView" />
+
+    <TextView
+        android:id="@+id/ACViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="10"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ACView"
+        app:layout_constraintLeft_toRightOf="@+id/ACView"
+        app:layout_constraintTop_toTopOf="@+id/ACView" />
+
+    <TextView
+        android:id="@+id/willView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:text="Will:"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ACView" />
+
+    <TextView
+        android:id="@+id/willViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="8dp"
+        android:text="+5"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/willView"
+        app:layout_constraintLeft_toRightOf="@+id/willView"
+        app:layout_constraintTop_toTopOf="@+id/willView" />
+
+    <TextView
+        android:id="@+id/RefView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="Ref:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/willViewNum"
+        app:layout_constraintLeft_toRightOf="@+id/willViewNum"
+        app:layout_constraintTop_toTopOf="@+id/willViewNum" />
+
+    <TextView
+        android:id="@+id/refViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:text="+5"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/RefView"
+        app:layout_constraintLeft_toRightOf="@+id/RefView"
+        app:layout_constraintTop_toTopOf="@+id/RefView" />
+
+    <TextView
+        android:id="@+id/fortView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="Fort:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/refViewNum"
+        app:layout_constraintLeft_toRightOf="@+id/refViewNum"
+        app:layout_constraintTop_toTopOf="@+id/refViewNum" />
+
+    <TextView
+        android:id="@+id/fortViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="+2"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fortView"
+        app:layout_constraintLeft_toRightOf="@+id/fortView"
+        app:layout_constraintTop_toTopOf="@+id/fortView" />
+
+    <TextView
+        android:id="@+id/HPView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="HP:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ACViewNum"
+        app:layout_constraintLeft_toRightOf="@+id/ACViewNum"
+        app:layout_constraintTop_toTopOf="@+id/ACViewNum" />
+
+    <TextView
+        android:id="@+id/HPViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="25"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/HPView"
+        app:layout_constraintLeft_toRightOf="@+id/HPView"
+        app:layout_constraintTop_toTopOf="@+id/HPView" />
+
+    <TextView
+        android:id="@+id/XPView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="XP:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/HPViewNum"
+        app:layout_constraintRight_toLeftOf="@+id/XPViewNum"
+        app:layout_constraintTop_toTopOf="@+id/HPViewNum"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/XPViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="5000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/XPView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/XPView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/atkView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="To hit:"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/willView" />
+
+    <TextView
+        android:id="@+id/atckViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="+5"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/atkView"
+        app:layout_constraintLeft_toRightOf="@+id/atkView"
+        app:layout_constraintTop_toTopOf="@+id/atkView" />
+
+    <TextView
+        android:id="@+id/dmgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Damage:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/atckViewNum"
+        app:layout_constraintLeft_toRightOf="@+id/atckViewNum"
+        app:layout_constraintTop_toTopOf="@+id/atckViewNum" />
+
+    <TextView
+        android:id="@+id/dmgViewNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="1d6 + 5"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dmgView"
+        app:layout_constraintLeft_toRightOf="@+id/dmgView"
+        app:layout_constraintTop_toTopOf="@+id/dmgView" />
+</android.support.constraint.ConstraintLayout>
