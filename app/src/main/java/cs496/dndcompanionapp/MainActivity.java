@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
+    @Override
+    public void onBackPressed() {
+      //prevents user from backing out of back
+    }
 
 }
 
