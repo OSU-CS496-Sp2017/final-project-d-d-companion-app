@@ -48,7 +48,7 @@ public class ManualSubclassDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            String subclassId = intent.getStringExtra("classId");
+            String subclassId = intent.getStringExtra("subclassId");
 
             dndApi = new DnDApi().createService();
             Call<CharacterSubclass> call = dndApi.getCharacterSubclasses(subclassId);
