@@ -20,15 +20,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        //setTheme(R.style.Barbarian);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme =
-                sharedPreferences.getString(
-                        getString(R.string.theme_key),
-                        getString(R.string.theme_default)
-                );
-
-        changeTheme(theme);
+        changeTheme(sharedPreferences.getString(
+                getString(R.string.theme_key),
+                getString(R.string.theme_default)
+        ));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MonsterGenActivity.class));
             }
         });
-        // Below is for settings/theme/preference
-        //android.preference.PreferenceManager.setDefaultValues(getBaseContext(),R.xml.prefs,false);
-        //String theme = SharedPreferences.getString("theme","theme");
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
@@ -65,47 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeTheme(String theme){
-        Log.d("TAG","Value of units in changeTheme:  " + theme);
-        switch (theme) {
-            case "Bard":
-                setTheme(R.style.Bard);
-                break;
-            case "Barbarian":
-                setTheme(R.style.Barbarian);
-                break;
-            case "Cleric":
-                setTheme(R.style.Cleric);
-                break;
-            case "Druid":
-                setTheme(R.style.Druid);
-                break;
-            case "Fighter":
-                setTheme(R.style.Fighter);
-                break;
-            case "Monk":
-                setTheme(R.style.Monk);
-                break;
-            case "Paladin":
-                setTheme(R.style.Paladin);
-                break;
-            case "Ranger":
-                setTheme(R.style.Ranger);
-                break;
-            case "Rogue":
-                setTheme(R.style.Rogue);
-                break;
-            case "Sorcerer":
-                setTheme(R.style.Sorcerer);
-                break;
-            case "Warlock":
-                setTheme(R.style.Warlock);
-                break;
-            case "Wizard":
-                setTheme(R.style.Wizard);
-                break;
-            default:
-                break;
-        }
+        setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
 }
 
