@@ -497,7 +497,7 @@ public final class DnDApi {
 	}
 
 
-	//equipment/{index}
+	//equipment/{index} (note: returns for weapons and armors are different)
 	public class WeaponCost {
 
 		public Integer quantity;
@@ -604,8 +604,7 @@ public final class DnDApi {
 		@GET("equipment/{num}")
 		Call <List<WeaponDetail>> weaponDetailsCall(@Path("index") int num);
 	}
-
-
+	
 	public class ArmorCost {
 
 		public Integer quantity;
@@ -833,7 +832,7 @@ public final class DnDApi {
 		ProficiencyDetails proficiencySearch = retrofit.create(ProficiencyDetails.class);
 
 
-		
+
 	}
 
 }
