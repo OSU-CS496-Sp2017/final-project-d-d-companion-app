@@ -3,7 +3,6 @@ package cs496.dndcompanionapp.Manual;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,48 +15,51 @@ import cs496.dndcompanionapp.DnDApi;
 import cs496.dndcompanionapp.R;
 import cs496.dndcompanionapp.SettingsActivity;
 import cs496.dndcompanionapp.models.CharacterClass;
+import cs496.dndcompanionapp.models.CharacterSubrace;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Brandon on 6/16/2017.
+ * Created by brandon on 6/16/2017.
  */
 
 public class ManualSubraceDetailActivity extends AppCompatActivity {
+
     private DnDApi.DnDApiService dndApi;
     private TextView name;
     private TextView hitDie;
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         changeTheme(sharedPreferences.getString(
                 getString(R.string.theme_key),
                 getString(R.string.theme_default)
         ));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manual_class_item_detail);
+        setContentView(R.layout.manual_subrace_detail);
 
-        name = (TextView) findViewById(R.id.name);
-        hitDie = (TextView) findViewById(R.id.hit_die);
+        name = (TextView) findViewById(R.id.subraceName);
+
 
         Intent intent = getIntent();
-        if(intent != null) {
-            String classId = intent.getStringExtra("classId");
+        if (intent != null) {
+            String subraceId = intent.getStringExtra("classId");
 
             dndApi = new DnDApi().createService();
-            Call<CharacterClass> call = dndApi.getCharacterClass(classId);
-            call.enqueue(new Callback<CharacterClass>() {
+            Call<CharacterSubrace> call = dndApi.getCharacterSubraces(subraceId);
+            call.enqueue(new Callback<CharacterSubrace>() {
                 @Override
-                public void onResponse(Call<CharacterClass> call, Response<CharacterClass> response) {
+                public void onResponse(Call<CharacterSubrace> call, Response<CharacterSubrace> response) {
                     name.setText(response.body().name);
-                    Log.d("TEST", Integer.toString(response.body().hitDie));
-                    hitDie.setText(Integer.toString(response.body().hitDie));
                 }
 
                 @Override
-                public void onFailure(Call<CharacterClass> call, Throwable t) {
+                public void onFailure(Call<CharacterSubrace> call, Throwable t) {
 
                 }
             });
@@ -70,6 +72,7 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -82,16 +85,18 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    public void changeTheme(String theme){
+
+    public void changeTheme(String theme) {
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
+
     @Override
     protected void onResume() {
         String action = getIntent().getAction();
         // Prevent endless loop by adding a unique action, don't restart if action is present
-        if(action == null || !action.equals("Already created")) {
+        if (action == null || !action.equals("Already created")) {
             Log.v("Example", "Force restart");
-            Intent intent = new Intent(this, ManualClassItemDetailActivity.class);
+            Intent intent = new Intent(this, ManualSubraceDetailActivity.class);
             startActivity(intent);
             finish();
         }
@@ -101,4 +106,6 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
 
         super.onResume();
     }
+
+
 }
