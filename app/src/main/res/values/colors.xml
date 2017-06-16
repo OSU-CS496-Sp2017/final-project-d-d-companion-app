@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="offGrey">#DBDDE0</color>
+
     <color name="BardPrimary">#ff4500</color>
     <color name="BardSecondary">#eaa556</color>
     <color name="BardAccent">#FF4081</color>
