@@ -46,20 +46,40 @@
             android:label="Subclasses">
         </activity>
         <activity
+            android:name=".Manual.ManualSubclassDetailActivity"
+            android:label="Subclass Details">
+        </activity>
+        <activity
             android:name=".Manual.ManualRaceActivity"
             android:label="Races">
+        </activity>
+        <activity
+            android:name=".Manual.ManualRaceDetailActivity"
+            android:label="Race Details">
         </activity>
         <activity
             android:name=".Manual.ManualSubraceActivity"
             android:label="Subraces">
         </activity>
         <activity
+            android:name=".Manual.ManualSubraceDetailActivity"
+            android:label="Subrace Details">
+        </activity>
+        <activity
             android:name=".Manual.ManualSkillActivity"
             android:label="Skills">
         </activity>
         <activity
-            android:name=".Manual.ManualSpellActivity"
-            android:label="Spells">
+            android:name=".Manual.ManualSkillDetailActivity"
+            android:label="Skill Details">
+        </activity>
+        <activity
+        android:name=".Manual.ManualSpellActivity"
+        android:label="Spells">
+        </activity>
+        <activity
+            android:name=".Manual.ManualSpellDetailActivity"
+            android:label="Spell Details">
         </activity>
         <activity
             android:name=".SettingsActivity"
