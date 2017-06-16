@@ -16,7 +16,6 @@
         android:gravity="center_vertical"
         android:layout_marginBottom="10dp"/>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,5 +105,9 @@
 
     </LinearLayout>
 
+=======
+        android:text="TextView"
+        android:title="Hit Die" />
+>>>>>>> 8aa15f695784c3ec268d40a9915bfe167226c1b3
 
 </LinearLayout>

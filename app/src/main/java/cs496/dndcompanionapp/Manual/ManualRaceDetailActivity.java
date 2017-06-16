@@ -56,7 +56,7 @@ public class ManualRaceDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent != null) {
-            String raceId = intent.getStringExtra("classId");
+            String raceId = intent.getStringExtra("raceId");
 
             dndApi = new DnDApi().createService();
             Call<CharacterRace> call = dndApi.getCharacterRaces(raceId);

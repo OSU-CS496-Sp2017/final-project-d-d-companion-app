@@ -129,11 +129,11 @@ public class ManualSubclassActivity extends AppCompatActivity {
             CharacterSubclassesResultItem cls = classes.get(position);
             holder.vName.setText(cls.name);
             String url = classes.get(position).url;
-            holder.classId = url.substring(url.length() - 1, url.length());
+            holder.subclassId = url.substring(url.length() - 1, url.length());
         }
 
         class ManualSubclassViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            protected String classId;
+            protected String subclassId;
             protected TextView vName;
 
             public ManualSubclassViewHolder(View v) {
@@ -145,7 +145,7 @@ public class ManualSubclassActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), ManualSubclassDetailActivity.class);
-                        intent.putExtra("classId", classId);
+                        intent.putExtra("subclassId", subclassId);
                         v.getContext().startActivity(intent);
                     }
                 });

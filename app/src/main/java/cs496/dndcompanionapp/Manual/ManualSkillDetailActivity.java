@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import cs496.dndcompanionapp.DnDApi;
 import cs496.dndcompanionapp.R;
 import cs496.dndcompanionapp.SettingsActivity;
@@ -26,9 +28,12 @@ import retrofit2.Response;
 public class ManualSkillDetailActivity extends AppCompatActivity {
     private DnDApi.DnDApiService dndApi;
     private TextView name;
+    private TextView ability;
+    private TextView description;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d("SkillDetail onCreate", " is running.");
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         changeTheme(sharedPreferences.getString(
                 getString(R.string.theme_key),
@@ -38,12 +43,17 @@ public class ManualSkillDetailActivity extends AppCompatActivity {
         setContentView(R.layout.manual_skill_detail);
 
         name = (TextView) findViewById(R.id.skillName);
+        ability = (TextView) findViewById(R.id.skillAbility);
+        description = (TextView) findViewById(R.id.skillDescription);
+
+        Log.d("Name text: ", name.getText().toString());
 
 
 
         Intent intent = getIntent();
         if(intent != null) {
-            String skillId = intent.getStringExtra("classId");
+            Log.d("", "Intent wasn't null");
+            String skillId = intent.getStringExtra("skillId");
 
             dndApi = new DnDApi().createService();
             Call<Skill> call = dndApi.getCharacterSkills(skillId);
@@ -51,6 +61,10 @@ public class ManualSkillDetailActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Skill> call, Response<Skill> response) {
                     name.setText(response.body().name);
+                    Log.d("SkillDetail test", response.body().abilScore.abilityName);
+                    ability.setText(response.body().abilScore.abilityName);
+                    Log.d("SkillDetail test", response.body().desc.get(0));
+                    description.setText(response.body().desc.get(0));
                 }
 
                 @Override
@@ -60,6 +74,7 @@ public class ManualSkillDetailActivity extends AppCompatActivity {
             });
         }
         getIntent().setAction("Already created"); //important for navigation
+        Log.d("", "done.");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
