@@ -26,7 +26,11 @@
         </activity>
         <activity
             android:name="MonsterGenActivity"
-            android:label="DnD Companion App">
+            android:label="Monster Generator">
+        </activity>
+        <activity
+            android:name="ManualActivity"
+            android:label="Quick Reference">
         </activity>
         <activity
             android:name=".SettingsActivity"

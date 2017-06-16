@@ -16,8 +16,7 @@ import android.widget.EditText;
  * Created by Sanlador on 6/15/2017.
  */
 
-public class MonsterGenActivity extends AppCompatActivity
-{
+public class MonsterGenActivity extends AppCompatActivity{
     private RecyclerView monsterList;
     private MonsterAdapter monster;
     Monster add;
