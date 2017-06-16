@@ -4,21 +4,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TabHost;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+/**
+ * Created by brandon on 6/16/2017.
+ */
 
-    TabHost tabHost;
-
-
+public class ManualActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         changeTheme(sharedPreferences.getString(
                 getString(R.string.theme_key),
@@ -27,30 +26,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button charBuilder = (Button)findViewById(R.id.goToChar);
-        Button Manual = (Button)findViewById(R.id.goToManual);
-        charBuilder.setOnClickListener(this);
-        Manual.setOnClickListener(this);
-
+        Button classes = (Button) findViewById(R.id.classes);
+        //classes.setOnClickListener(this);
 
     }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
 
-            case R.id.goToChar:
-                startActivity(new Intent(MainActivity.this, MonsterGenActivity.class));
-                break;
-
-            case R.id.goToManual:
-                startActivity(new Intent(MainActivity.this, ManualActivity.class));
-                break;
-
-            default:
-                break;
+                case R.id.classes:
+                    startActivity(new Intent(ManualActivity.this, ManualClassActivity.class));
+                    break;
+/*
+                case R.id.goToManual:
+                    startActivity(new Intent(MainActivity.this, ManualActivity.class));
+                    break;
+*/
+                default:
+                    break;
+            }
+            // default method for handling onClick Events..
         }
-        // default method for handling onClick Events..
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -72,11 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
-    @Override
-    public void onBackPressed() {
-      //prevents user from backing out of back
-    }
+
 
 }
-
-
