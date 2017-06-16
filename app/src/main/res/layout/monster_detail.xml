@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="230dp"
     android:orientation="vertical">
 
     <TextView
@@ -25,24 +25,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginRight="189dp"
+        android:layout_marginTop="-12dp"
         android:text="CR:"
         android:textSize="25sp"
         app:layout_constraintRight_toLeftOf="@+id/CRViewNum"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/monsterNameView" />
 
     <TextView
         android:id="@+id/CRViewNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
         android:text="10"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/CRView"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/CRView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/ACView"
@@ -50,11 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="AC:"
         android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/monsterNameView" />
+        app:layout_constraintTop_toBottomOf="@+id/CRView" />
 
     <TextView
         android:id="@+id/ACViewNum"
@@ -186,7 +189,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="16dp"
         android:text="5000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/XPView"

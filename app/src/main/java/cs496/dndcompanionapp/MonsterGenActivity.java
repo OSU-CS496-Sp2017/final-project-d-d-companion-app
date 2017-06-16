@@ -58,8 +58,11 @@ public class MonsterGenActivity extends AppCompatActivity{
                     if (!TextUtils.isEmpty(CR)) {
                         for (int i = 0; i < control; i++)
                         {
-                            add = new Monster(Integer.parseInt(CR));
-                            monster.addMonster(add);
+                            if (Integer.parseInt(CR) > 0 && Integer.parseInt(CR) < 21)
+                            {
+                                add = new Monster(Integer.parseInt(CR));
+                                monster.addMonster(add);
+                            }
                         }
 
                     }
