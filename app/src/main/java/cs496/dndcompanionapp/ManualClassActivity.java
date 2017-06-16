@@ -144,15 +144,32 @@ public class ManualClassActivity extends AppCompatActivity {
         public void onBindViewHolder(ManualClassItemViewHolder holder, int position) {
             CharacterClassesResultItem cls = classes.get(position);
             holder.vName.setText(cls.name);
+            String url = classes.get(position).url;
+            holder.classId = url.substring(url.length() - 1, url.length());
         }
 
-        class ManualClassItemViewHolder extends RecyclerView.ViewHolder {
+        class ManualClassItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+            protected String classId;
             protected TextView vName;
 
             public ManualClassItemViewHolder(View v) {
                 super(v);
 
                 vName = (TextView) v.findViewById(R.id.name);
+
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), ManualClassItemDetailActivity.class);
+                        intent.putExtra("classId", classId);
+                        v.getContext().startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onClick(View v) {
+
             }
         }
     }

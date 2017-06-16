@@ -37,6 +37,11 @@
             android:label="Classes">
         </activity>
         <activity
+            android:name=".ManualClassItemDetailActivity"
+            android:label="Class Detail">
+        </activity>
+
+        <activity
             android:name="ManualSubclassActivity"
             android:label="Subclasses">
         </activity>
