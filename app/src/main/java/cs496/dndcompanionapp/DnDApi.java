@@ -27,6 +27,10 @@ public final class DnDApi {
 	 * subraces
 	 * ability-scores
 	 * equipment
+	 * spells
+	 * skills
+	 * languages
+	 * proficiencies
 	 */
 	public class RootSearchResult {
 		public String name;
@@ -418,7 +422,7 @@ public final class DnDApi {
 		}
 
 	}
-	public class Spell {
+	public class SubclassSpell {
 
 		public Spell_ spell;
 		public List<Object> prerequisites = null;
@@ -474,7 +478,7 @@ public final class DnDApi {
 		public String subclassFlavor;
 		public List<String> desc = null;
 		public List<Object> features = null;
-		public List<Spell> spells = null;
+		public List<SubclassSpell> spells = null;
 		public String url;
 		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -492,16 +496,324 @@ public final class DnDApi {
 		Call <List<SubclassDetail>> subclassDetailsCall(@Path("index") int num);
 	}
 
-	
+
 	//equipment/{index}
+	public class WeaponCost {
+
+		public Integer quantity;
+		public String unit;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class WeaponDamage {
+
+		public Integer diceCount;
+		public Integer diceValue;
+		public WeaponDamageType damageType;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class WeaponDamageType {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class WeaponDetail {
+
+		public String id;
+		public Integer index;
+		public String name;
+		public String equipmentCategory;
+		public String weaponCategory;
+		public String weaponRange;
+		public String categoryRange;
+		public WeaponCost cost;
+		public WeaponDamage damage;
+		public WeaponRange range;
+		public Integer weight;
+		public List<WeaponProperty> properties = null;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class WeaponProperty {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class WeaponRange {
+
+		public Integer normal;
+		public Object _long;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface WeaponDetails {
+		@GET("equipment/{num}")
+		Call <List<WeaponDetail>> weaponDetailsCall(@Path("index") int num);
+	}
+
+
+	public class ArmorCost {
+
+		public Integer quantity;
+		public String unit;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ArmorDetail {
+
+		public String id;
+		public Integer index;
+		public String name;
+		public String equipmentCategory;
+		public String gearCategory;
+		public ArmorCost cost;
+		public Integer weight;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface ArmorDetails {
+		@GET("equipment/{num}")
+		Call <List<ArmorDetail>> armorDetailsCall(@Path("index") int num);
+	}
+
+
 
 	//spell data
+	public class SpellClass {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SpellSubclass {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SpellSchool {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SpellDetail {
+
+		public String id;
+		public Integer index;
+		public String name;
+		public List<String> desc = null;
+		public List<String> higherLevel = null;
+		public String page;
+		public String range;
+		public List<String> components = null;
+		public String material;
+		public String ritual;
+		public String duration;
+		public String concentration;
+		public String castingTime;
+		public Integer level;
+		public SpellSchool school;
+		public List<SpellClass> classes = null;
+		public List<SpellSubclass> subclasses = null;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface SpellDetails {
+		@GET("spells/{num}")
+		Call <List<SpellDetail>> spellDetailsCall(@Path("index") int num);
+	}
 
 
 	//skills/{index}
+	public class AbilityScore {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SkillDetail {
+
+		public String id;
+		public Integer index;
+		public String name;
+		public List<String> desc = null;
+		public AbilityScore abilityScore;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface SkillDetails {
+		@GET("skills/{num}")
+		Call <List<SkillDetail>> skillDetailsCall(@Path("index") int num);
+	}
+
 
 
 	//proficiencies/{index or class}
+	public class ProficiencyClass {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ProficiencyDetail {
+
+		public String id;
+		public Integer index;
+		public String type;
+		public String name;
+		public List<ProficiencyClass> classes = null;
+		public List<Object> races = null;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface ProficiencyDetails {
+		@GET("proficiencies/{num}")
+		Call <List<ProficiencyDetail>> proficiencyDetailsCall(@Path("index") int num);
+	}
 
 
 
@@ -509,7 +821,19 @@ public final class DnDApi {
 		Retrofit retrofit = new Retrofit.Builder().baseUrl(apiUrl).build();
 
 		OptionsForSelectionList rootSearch = retrofit.create(OptionsForSelectionList.class);
+		LanguageDetailsInterface languageSearch = retrofit.create(LanguageDetailsInterface.class);
+		RaceDetails raceSearch = retrofit.create(RaceDetails.class);
+		SubRaceDetails subraceSearch = retrofit.create(SubRaceDetails.class);
+		ClassDetails classSearch = retrofit.create(ClassDetails.class);
+		SubclassDetails subclassSearch = retrofit.create(SubclassDetails.class);
+		WeaponDetails weaponSearch = retrofit.create(WeaponDetails.class);
+		ArmorDetails armorSearch = retrofit.create(ArmorDetails.class);
+		SpellDetails spellSearch = retrofit.create(SpellDetails.class);
+		SkillDetails skillSearch = retrofit.create(SkillDetails.class);
+		ProficiencyDetails proficiencySearch = retrofit.create(ProficiencyDetails.class);
 
+
+		
 	}
 
 }
