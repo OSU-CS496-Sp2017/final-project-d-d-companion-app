@@ -2,16 +2,13 @@ package cs496.dndcompanionapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
-import android.support.v4.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Below is for settings/theme/preference
-        android.preference.PreferenceManager.setDefaultValues(getBaseContext(),R.xml.prefs,false);
-        String theme =
-                SharedPreferences.getString(
-                        getString(R.string.theme_key),
-                        getString(R.string.theme_default)
-                );
+        //android.preference.PreferenceManager.setDefaultValues(getBaseContext(),R.xml.prefs,false);
+        //String theme = SharedPreferences.getString("theme","theme");
 
     }
     @Override

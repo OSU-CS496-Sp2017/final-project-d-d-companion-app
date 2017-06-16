@@ -1,5 +1,6 @@
 package cs496.dndcompanionapp;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.preference.EditTextPreference;
@@ -16,8 +17,24 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         Log.d("TAG","In onCreatePreferences");
         addPreferencesFromResource(R.xml.prefs);
-        EditTextPreference userPref = (EditTextPreference)findPreference(getString(R.string.theme_key));
-        userPref.setSummary(userPref.getText());
+        Log.d("TAG","After addPreferencesFromResource");
+        Log.d("TAG","Name of theme_key:  "+ getString(R.string.theme_key));
+        Log.d("TAG","Found theme! " +  findPreference("theme"));
+
+        Log.d("TAG","After editTextPref");
+
+
+        //addPreferencesFromResource(R.xml.prefs);
+
+
+
+
+        //(EditTextPreference) findPreference("theme");
+
+
+
+      // userPref.setSummary("theme");
+        Log.d("TAG","After setSummary");
     }
     @Override
     public void onResume() {
@@ -36,8 +53,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(getString(R.string.theme_key))) {
             Log.d("TAG","In onSharedPreferenceChanged");
-            EditTextPreference userPref = (EditTextPreference)findPreference(key);
-            userPref.setSummary(userPref.getText());
         }
     }
 }
