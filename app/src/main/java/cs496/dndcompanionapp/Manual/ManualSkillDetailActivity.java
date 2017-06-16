@@ -46,7 +46,7 @@ public class ManualSkillDetailActivity extends AppCompatActivity {
             String skillId = intent.getStringExtra("classId");
 
             dndApi = new DnDApi().createService();
-            Call<Skill> call = dndApi.getCharacterSkill(skillId);
+            Call<Skill> call = dndApi.getCharacterSkills(skillId);
             call.enqueue(new Callback<Skill>() {
                 @Override
                 public void onResponse(Call<Skill> call, Response<Skill> response) {
