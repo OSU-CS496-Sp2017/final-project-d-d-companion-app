@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="BardPrimary">#ff4500</color>
-    <color name="BardSecondary">#c42f4a</color>
+    <color name="BardSecondary">#eaa556</color>
     <color name="BardAccent">#FF4081</color>
-    <color name="BardBackground">#eaa556</color>
+    <color name="BardBackground">#c42f4a</color>
 
     <color name="BarbarianPrimary">#830303</color>
     <color name="BarbarianSecondary">#43464b</color>
