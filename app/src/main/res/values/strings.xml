@@ -45,4 +45,16 @@
         <item>Neutral Evil</item>
         <item>Chaotic Evil</item>
     </string-array>
+
+    <string-array name="searchChoices">
+        <item>Class</item>
+        <item>Subclass</item>
+        <item>Race</item>
+        <item>Subrace</item>
+        <item>Language</item>
+        <item>Skill</item>
+        <item>Spell</item>
+        <item>Proficiency</item>
+    </string-array>
+
 </resources>

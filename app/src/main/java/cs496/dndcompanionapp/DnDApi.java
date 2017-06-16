@@ -1,3 +1,5 @@
+package cs496.dndcompanionapp;
+
 import android.net.Uri;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,9 +58,10 @@ public class DnDApi {
 				url = url + "equipment/";
 				break;
 			
-			case default:
-				Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
+			default:
+				//Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
 				break;
 		}
+		return url;
 	}
 }
