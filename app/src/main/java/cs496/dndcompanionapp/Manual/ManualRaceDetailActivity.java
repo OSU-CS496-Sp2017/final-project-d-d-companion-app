@@ -59,7 +59,7 @@ public class ManualRaceDetailActivity extends AppCompatActivity {
             String raceId = intent.getStringExtra("classId");
 
             dndApi = new DnDApi().createService();
-            Call<CharacterRace> call = dndApi.getCharacterRace(raceId);
+            Call<CharacterRace> call = dndApi.getCharacterRaces(raceId);
             call.enqueue(new Callback<CharacterRace>() {
                 @Override
                 public void onResponse(Call<CharacterRace> call, Response<CharacterRace> response) {

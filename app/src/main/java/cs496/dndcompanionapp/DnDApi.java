@@ -10,15 +10,8 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import cs496.dndcompanionapp.models.AbilityScore;
-import cs496.dndcompanionapp.models.CharacterClass;
-import cs496.dndcompanionapp.models.CharacterClassesResult;
-import cs496.dndcompanionapp.models.CharacterSpell;
-import cs496.dndcompanionapp.models.CharacterSpellsResult;
-import cs496.dndcompanionapp.models.CharacterSubclass;
-import cs496.dndcompanionapp.models.CharacterSubclassesResult;
-import cs496.dndcompanionapp.models.CharacterSubrace;
-import cs496.dndcompanionapp.models.CharacterSubracesResult;
+import cs496.dndcompanionapp.models.*;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -52,18 +45,27 @@ public class DnDApi {
 	public interface DnDApiService {
         @GET("classes")
         Call<CharacterClassesResult> getCharacterClasses();
+        @GET("races")
+        Call<CharacterRacesResult> getCharacterRaces();
         @GET("subraces")
         Call<CharacterSubracesResult> getCharacterSubraces();
         @GET("spells")
         Call<CharacterSpellsResult> getCharacterSpells();
+        @GET("skills")
+        Call<SkillResult> getCharacterSkills();
         @GET("subclasses")
         Call<CharacterSubclassesResult> getCharacterSubclasses();
+
 		@GET("classes/{class}")
         Call<CharacterClass> getCharacterClass(@Path("class") String characterClass);
+        @GET("races/{race}")
+        Call<CharacterRace> getCharacterRaces(@Path("race") String characterRaces);
         @GET("subraces/{subrace}")
         Call<CharacterSubrace> getCharacterSubraces(@Path("subrace") String characterSubraces);
         @GET("spells/{spell}")
         Call<CharacterSpell> getCharacterSpells(@Path("spell") String characterSpells);
+        @GET("skills/{skill}")
+        Call<Skill> getCharacterSkills(@Path("skill") String characterSkills);
         @GET("subclasses/{subclass}")
         Call<CharacterSubclass> getCharacterSubclasses(@Path("subclass") String characterSpells);
 
