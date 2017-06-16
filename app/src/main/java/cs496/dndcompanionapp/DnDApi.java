@@ -63,7 +63,7 @@ public class DnDApi {
         @GET("subraces/{subrace}")
         Call<CharacterSubrace> getCharacterSubraces(@Path("subrace") String characterSubraces);
         @GET("spells/{spell}")
-        Call<CharacterSpell> getCharacterSpells(@Path("spell") String characterSpells);
+        Call<CharacterSpell> getCharacterSpell(@Path("spell") String characterSpell);
         @GET("skills/{skill}")
         Call<Skill> getCharacterSkills(@Path("skill") String characterSkills);
         @GET("subclasses/{subclass}")

@@ -10,6 +10,5 @@ public class CharacterSpell {
     public String _id;
     public String index;
     public String name;
-    @SerializedName("hit_die") public int hitDie;
     public String url;
 }

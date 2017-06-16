@@ -35,7 +35,7 @@ public class ManualSpellActivity extends AppCompatActivity {
     DnDApi.DnDApiService dndApi;
 
     private RecyclerView mRecyclerView;
-    private ManualSpellActivity.ManualSpellAdapter mAdapter;
+    private ManualSpellAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
 
@@ -100,7 +100,7 @@ public class ManualSpellActivity extends AppCompatActivity {
 
     public class ManualSpellAdapter extends RecyclerView.Adapter<ManualSpellActivity.ManualSpellAdapter.ManualSpellViewHolder> {
         private Context context;
-        private List<CharacterSpellsResultItem> classes = new ArrayList<>();
+        private List<CharacterSpellsResultItem> spells = new ArrayList<>();
 
         public ManualSpellAdapter(Context context) {
             this.context = context;
@@ -108,33 +108,33 @@ public class ManualSpellActivity extends AppCompatActivity {
 
         public void updateData(CharacterSpellsResult results) {
             for (CharacterSpellsResultItem result : results.results) {
-                classes.add(result);
+                spells.add(result);
             }
             notifyDataSetChanged();
         }
 
         @Override
         public int getItemCount() {
-            return classes.size();
+            return spells.size();
         }
 
         @Override
-        public ManualSpellActivity.ManualSpellAdapter.ManualSpellViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ManualSpellViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             View view = inflater.inflate(R.layout.manual_item_card, parent, false);
-            return new ManualSpellActivity.ManualSpellAdapter.ManualSpellViewHolder(view);
+            return new ManualSpellViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(ManualSpellActivity.ManualSpellAdapter.ManualSpellViewHolder holder, int position) {
-            CharacterSpellsResultItem cls = classes.get(position);
-            holder.vName.setText(cls.name);
-            String url = classes.get(position).url;
-            holder.classId = url.substring(url.length() - 1, url.length());
+        public void onBindViewHolder(ManualSpellViewHolder holder, int position) {
+            CharacterSpellsResultItem spl = spells.get(position);
+            holder.vName.setText(spl.name);
+            String url = spells.get(position).url;
+            holder.spellId = url.substring(url.length() - 1, url.length());
         }
 
         class ManualSpellViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-            protected String classId;
+            protected String spellId;
             protected TextView vName;
 
             public ManualSpellViewHolder(View v) {
@@ -146,7 +146,7 @@ public class ManualSpellActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), ManualSpellDetailActivity.class);
-                        intent.putExtra("classId", classId);
+                        intent.putExtra("spellId", spellId);
                         v.getContext().startActivity(intent);
                     }
                 });
