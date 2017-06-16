@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * Created by brandon on 6/16/2017.
  */
 
-public class ManualClassActivity extends AppCompatActivity {
+public class ManualRaceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

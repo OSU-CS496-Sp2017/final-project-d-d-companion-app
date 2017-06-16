@@ -33,6 +33,30 @@
             android:label="Quick Reference">
         </activity>
         <activity
+            android:name="ManualClassActivity"
+            android:label="Classes">
+        </activity>
+        <activity
+            android:name="ManualSubclassActivity"
+            android:label="Subclasses">
+        </activity>
+        <activity
+            android:name="ManualRaceActivity"
+            android:label="Races">
+        </activity>
+        <activity
+            android:name="ManualSubraceActivity"
+            android:label="Subraces">
+        </activity>
+        <activity
+            android:name="ManualSkillActivity"
+            android:label="Skills">
+        </activity>
+        <activity
+            android:name="ManualSpellActivity"
+            android:label="Spells">
+        </activity>
+        <activity
             android:name=".SettingsActivity"
             android:label="@string/action_settings"
             android:parentActivityName=".MainActivity">
