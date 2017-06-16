@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                         getString(R.string.theme_key),
                         getString(R.string.theme_default)
                 );
+
         changeTheme(theme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -62,21 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    @Override
-    public void onResume() {
-        super.onResume();  // Always call the superclass method first
-        //run();
 
-    }
-    public void run() {
-        Intent intent =getIntent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-       overridePendingTransition(0, 0);
-      finish();
-        overridePendingTransition(0, 0);
-        startActivity(intent);
-    }
     public void changeTheme(String theme){
         Log.d("TAG","Value of units in changeTheme:  " + theme);
         switch (theme) {
@@ -87,34 +74,34 @@ public class MainActivity extends AppCompatActivity {
                 setTheme(R.style.Barbarian);
                 break;
             case "Cleric":
-                //setTheme();
+                setTheme(R.style.Cleric);
                 break;
             case "Druid":
-                //setTheme();
+                setTheme(R.style.Druid);
                 break;
             case "Fighter":
-                //setTheme();
+                setTheme(R.style.Fighter);
                 break;
             case "Monk":
-                //setTheme();
+                setTheme(R.style.Monk);
                 break;
             case "Paladin":
-                //setTheme();
+                setTheme(R.style.Paladin);
                 break;
             case "Ranger":
-                //setTheme();
+                setTheme(R.style.Ranger);
                 break;
             case "Rogue":
-                //setTheme();
+                setTheme(R.style.Rogue);
                 break;
             case "Sorcerer":
-                //setTheme();
+                setTheme(R.style.Sorcerer);
                 break;
             case "Warlock":
-                //setTheme();
+                setTheme(R.style.Warlock);
                 break;
             case "Wizard":
-                //setTheme();
+                setTheme(R.style.Wizard);
                 break;
             default:
                 break;

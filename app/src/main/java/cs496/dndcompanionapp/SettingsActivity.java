@@ -30,40 +30,39 @@ public class SettingsActivity extends AppCompatActivity {
         switch (theme) {
             case "Bard":
                 setTheme(R.style.Bard);
-
                 break;
             case "Barbarian":
                 setTheme(R.style.Barbarian);
                 break;
             case "Cleric":
-                //setTheme();
+                setTheme(R.style.Cleric);
                 break;
             case "Druid":
-                //setTheme();
+                setTheme(R.style.Druid);
                 break;
             case "Fighter":
-                //setTheme();
+                setTheme(R.style.Fighter);
                 break;
             case "Monk":
-                //setTheme();
+                setTheme(R.style.Monk);
                 break;
             case "Paladin":
-                //setTheme();
+                setTheme(R.style.Paladin);
                 break;
             case "Ranger":
-                //setTheme();
+                setTheme(R.style.Ranger);
                 break;
             case "Rogue":
-                //setTheme();
+                setTheme(R.style.Rogue);
                 break;
             case "Sorcerer":
-                //setTheme();
+                setTheme(R.style.Sorcerer);
                 break;
             case "Warlock":
-                //setTheme();
+                setTheme(R.style.Warlock);
                 break;
             case "Wizard":
-                //setTheme();
+                setTheme(R.style.Wizard);
                 break;
             default:
                 break;

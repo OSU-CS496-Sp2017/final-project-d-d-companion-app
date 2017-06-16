@@ -6,29 +6,96 @@
         <item name="colorPrimary">@color/BardPrimary</item>
         <item name="colorPrimaryDark">@color/BardSecondary</item>
         <item name="colorAccent">@color/BardAccent</item>
-
-
-        <item name="preferenceTheme">
-            @style/PreferenceThemeOverlay.v14.Material
-        </item>
-
-        <!-- Remove shadow under action bar for Android < 5.0 -->
-        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@color/BardBackground</item>
+        <item name="preferenceTheme"> @style/PreferenceThemeOverlay.v14.Material</item>
     </style>
     <style name="Barbarian" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/BarbarianPrimary</item>
         <item name="colorPrimaryDark">@color/BarbarianSecondary</item>
         <item name="colorAccent">@color/BarbarianAccent</item>
-
-        <item name="preferenceTheme">
-            @style/PreferenceThemeOverlay.v14.Material
-        </item>
-
-        <!-- Remove shadow under action bar for Android < 5.0 -->
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">?android:attr/colorActivatedHighlight</item>
+        <item name="android:windowBackground">@color/BarbarianBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Cleric" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/ClericPrimary</item>
+    <item name="colorPrimaryDark">@color/ClericSecondary</item>
+    <item name="colorAccent">@color/ClericAccent</item>
+    <item name="android:windowBackground">@color/ClericBackground</item>
+    <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Druid" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/DruidPrimary</item>
+        <item name="colorPrimaryDark">@color/DruidSecondary</item>
+        <item name="colorAccent">@color/DruidAccent</item>
+        <item name="android:windowBackground">@color/DruidBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Fighter" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/FighterPrimary</item>
+        <item name="colorPrimaryDark">@color/FighterSecondary</item>
+        <item name="colorAccent">@color/FighterAccent</item>
+        <item name="android:windowBackground">@color/FighterBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Monk" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/MonkPrimary</item>
+        <item name="colorPrimaryDark">@color/MonkSecondary</item>
+        <item name="colorAccent">@color/MonkAccent</item>
+        <item name="android:windowBackground">@color/MonkBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Paladin" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/PaladinPrimary</item>
+        <item name="colorPrimaryDark">@color/PaladinSecondary</item>
+        <item name="colorAccent">@color/PaladinAccent</item>
+        <item name="android:windowBackground">@color/PaladinBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Ranger" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/RangerPrimary</item>
+        <item name="colorPrimaryDark">@color/RangerSecondary</item>
+        <item name="colorAccent">@color/RangerAccent</item>
+        <item name="android:windowBackground">@color/RangerBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Rogue" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/RoguePrimary</item>
+        <item name="colorPrimaryDark">@color/RogueSecondary</item>
+        <item name="colorAccent">@color/RogueAccent</item>
+        <item name="android:windowBackground">@color/RogueBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Sorcerer" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/SorcererPrimary</item>
+        <item name="colorPrimaryDark">@color/SorcererSecondary</item>
+        <item name="colorAccent">@color/SorcererAccent</item>
+        <item name="android:windowBackground">@color/SorcererBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Warlock" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/WarlockPrimary</item>
+        <item name="colorPrimaryDark">@color/WarlockSecondary</item>
+        <item name="colorAccent">@color/WarlockAccent</item>
+        <item name="android:windowBackground">@color/WarlockBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+    <style name="Wizard" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/WizardPrimary</item>
+        <item name="colorPrimaryDark">@color/WizardSecondary</item>
+        <item name="colorAccent">@color/WizardAccent</item>
+        <item name="android:windowBackground">@color/WizardBackground</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
 </resources>
