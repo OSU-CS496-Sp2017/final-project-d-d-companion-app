@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 
+import cs496.dndcompanionapp.Manual.ManualActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TabHost tabHost;

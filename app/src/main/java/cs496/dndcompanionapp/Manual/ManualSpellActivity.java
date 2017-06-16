@@ -1,4 +1,4 @@
-package cs496.dndcompanionapp;
+package cs496.dndcompanionapp.Manual;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import cs496.dndcompanionapp.*;
 /**
  * Created by brandon on 6/16/2017.
  */
@@ -49,7 +49,7 @@ public class ManualSpellActivity extends AppCompatActivity {
         String action = getIntent().getAction();
         // Prevent endless loop by adding a unique action, don't restart if action is present
         if(action == null || !action.equals("Already created")) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ManualSpellActivity.class);
             startActivity(intent);
             finish();
         }
