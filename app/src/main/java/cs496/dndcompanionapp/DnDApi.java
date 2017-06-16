@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+//Note: all api queries need to be lowercase, and not uppercase.
 
 public final class DnDApi {
 	public static final String apiUrl = "http://www.dnd5eapi.co/api/";
@@ -264,11 +265,234 @@ public final class DnDApi {
 
 
 
-
 	//classes/{index or class}
+	public class ClassDetail {
 
-	//subclasses (can do /subclasses/num or /subclasses/class)
+		public String id;
+		public Integer index;
+		public String name;
+		public Integer hitDie;
+		public List<ProficiencyChoice> proficiencyChoices = null;
+		public List<ClassProficiency> proficiencies = null;
+		public List<SavingThrow> savingThrows = null;
+		public StartingEquipment startingEquipment;
+		public ClassLevels classLevels;
+		public List<Subclass> subclasses = null;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ClassLevels {
+
+		public String url;
+		public String _class;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ProficiencyChoiceFrom {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ClassProficiency {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class ProficiencyChoice {
+
+		public List<ProficiencyChoiceFrom> proficiencyChoiceFrom = null;
+		public String type;
+		public Integer choose;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SavingThrow {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class StartingEquipment {
+
+		public String url;
+		public String _class;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class Subclass {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface ClassDetails {
+		@GET("classes/{indexOrClass}")
+		Call <List<ClassDetail>> classDetailsCall(@Path("indexOrClass") String classQuery);
+	}
+
+
+	//subclasses (can do /subclasses/num or /subclasses/className, but they return different things.)
+	public class SubclassClassReference {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class Spell {
+
+		public Spell_ spell;
+		public List<Object> prerequisites = null;
+		public SpellAcquisitionMethod spellAcquisitionMethod;
+		public Integer levelAcquired;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SpellAcquisitionMethod {
+
+		public String url;
+		public String name;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class Spell_ {
+
+		public String name;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public class SubclassDetail {
+
+		public String id;
+		public Integer index;
+		public SubclassClassReference _class;
+		public String name;
+		public String subclassFlavor;
+		public List<String> desc = null;
+		public List<Object> features = null;
+		public List<Spell> spells = null;
+		public String url;
+		private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+		public Map<String, Object> getAdditionalProperties() {
+			return this.additionalProperties;
+		}
+
+		public void setAdditionalProperty(String name, Object value) {
+			this.additionalProperties.put(name, value);
+		}
+
+	}
+	public interface SubclassDetails {
+		@GET("subclasses/{num}")
+		Call <List<SubclassDetail>> subclassDetailsCall(@Path("index") int num);
+	}
+
+	
 	//equipment/{index}
 
 	//spell data
@@ -283,7 +507,9 @@ public final class DnDApi {
 
 	public static void main(String ... args) throws IOException {
 		Retrofit retrofit = new Retrofit.Builder().baseUrl(apiUrl).build();
-		
+
+		OptionsForSelectionList rootSearch = retrofit.create(OptionsForSelectionList.class);
+
 	}
 
 }
