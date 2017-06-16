@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +39,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
         subraces.setOnClickListener(this);
         skills.setOnClickListener(this);
         spells.setOnClickListener(this);
+        getIntent().setAction("Already created"); //important for navigation
     }
         @Override
         public void onClick(View v) {
@@ -92,6 +94,21 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
+    @Override
+    protected void onResume() {
+               String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if(action == null || !action.equals("Already created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
 
+        super.onResume();
+    }
 
 }
