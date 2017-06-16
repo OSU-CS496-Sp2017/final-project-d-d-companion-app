@@ -2,6 +2,7 @@ package cs496.dndcompanionapp;
 
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,13 @@ public class SettingsActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+    }
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
     public void changeTheme(String theme){
         Log.d("TAG","Value of units in changeTheme:  " + theme);
