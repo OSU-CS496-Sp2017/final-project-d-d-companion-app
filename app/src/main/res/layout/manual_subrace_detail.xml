@@ -4,12 +4,41 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".Manual.ManualSkillDetailActivity">
 
     <TextView
         android:id="@+id/subraceName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="TextView" />
+
+    <TextView
+        android:id="@+id/subraceDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/statDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="               Ability Score Bonuses" />
+
+    <TextView
+        android:id="@+id/Stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="    Int    Wis    Cha    Dex    Con    Str" />
+
+    <TextView
+        android:id="@+id/statDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    android:layout
 
 </LinearLayout>
