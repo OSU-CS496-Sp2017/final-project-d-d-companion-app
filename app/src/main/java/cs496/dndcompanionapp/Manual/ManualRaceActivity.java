@@ -20,8 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cs496.dndcompanionapp.*;
-import cs496.dndcompanionapp.models.CharacterClassesResult;
-import cs496.dndcompanionapp.models.CharacterClassesResultItem;
 import cs496.dndcompanionapp.models.CharacterRacesResult;
 import cs496.dndcompanionapp.models.CharacterRacesResultItem;
 import retrofit2.Call;

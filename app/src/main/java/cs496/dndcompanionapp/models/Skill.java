@@ -5,6 +5,8 @@ package cs496.dndcompanionapp.models;
  */
 
 public class Skill {
+    public String _id;
+    public String index;
     public String name;
     public String url;
 }
