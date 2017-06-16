@@ -17,24 +17,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         Log.d("TAG","In onCreatePreferences");
         addPreferencesFromResource(R.xml.prefs);
-        Log.d("TAG","After addPreferencesFromResource");
-        Log.d("TAG","Name of theme_key:  "+ getString(R.string.theme_key));
-        Log.d("TAG","Found theme! " +  findPreference("theme"));
-
-        Log.d("TAG","After editTextPref");
-
-
-        //addPreferencesFromResource(R.xml.prefs);
-
-
-
-
-        //(EditTextPreference) findPreference("theme");
-
-
-
-      // userPref.setSummary("theme");
-        Log.d("TAG","After setSummary");
     }
     @Override
     public void onResume() {
