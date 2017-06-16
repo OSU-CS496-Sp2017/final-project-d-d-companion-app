@@ -14,9 +14,7 @@ import android.widget.TextView;
 import cs496.dndcompanionapp.DnDApi;
 import cs496.dndcompanionapp.R;
 import cs496.dndcompanionapp.SettingsActivity;
-import cs496.dndcompanionapp.models.CharacterClass;
 import cs496.dndcompanionapp.models.CharacterSubrace;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +27,8 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
 
     private DnDApi.DnDApiService dndApi;
     private TextView name;
-    private TextView hitDie;
+    private TextView desc;
+    private TextView stats;
 
 
     @Override
@@ -44,6 +43,8 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.manual_subrace_detail);
 
         name = (TextView) findViewById(R.id.subraceName);
+        desc = (TextView) findViewById(R.id.subraceDesc);
+        stats = (TextView) findViewById(R.id.statDisplay);
 
 
         Intent intent = getIntent();
@@ -56,6 +57,14 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<CharacterSubrace> call, Response<CharacterSubrace> response) {
                     name.setText(response.body().name);
+                    desc.setText(response.body().desc);
+                    String d = "     ";
+                    for (int i = 0; i < response.body().abilityBonus.length; i++)
+                    {
+                        d += response.body().abilityBonus[i] + "        ";
+                    }
+                    stats.setText(d);
+
                 }
 
                 @Override
@@ -106,6 +115,5 @@ public class ManualSubraceDetailActivity extends AppCompatActivity {
 
         super.onResume();
     }
-
 
 }
