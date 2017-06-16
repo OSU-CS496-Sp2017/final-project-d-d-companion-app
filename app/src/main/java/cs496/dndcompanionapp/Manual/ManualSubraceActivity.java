@@ -1,21 +1,44 @@
 package cs496.dndcompanionapp.Manual;
-
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import cs496.dndcompanionapp.models.CharacterSubrace;
+import cs496.dndcompanionapp.models.CharacterSubracesResult;
+import cs496.dndcompanionapp.models.CharacterSubracesResultItem;
+import cs496.dndcompanionapp.models.CharacterSubracesResult;
+import cs496.dndcompanionapp.models.CharacterSubracesResultItem;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import cs496.dndcompanionapp.DnDApi;
+
 import cs496.dndcompanionapp.*;
 
 
-/**
- * Created by brandon on 6/16/2017.
- */
-
 public class ManualSubraceActivity extends AppCompatActivity {
-    @Override
+    DnDApi.DnDApiService dndApi;
+
+    private RecyclerView mRecyclerView;
+    private ManualSubraceActivity.ManualSubraceAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         changeTheme(sharedPreferences.getString(
@@ -23,7 +46,34 @@ public class ManualSubraceActivity extends AppCompatActivity {
                 getString(R.string.theme_default)
         ));
         super.onCreate(savedInstanceState);
+
+        getIntent().setAction("Already created"); //important for navigation
+
         setContentView(R.layout.manual_item);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.rv_manual_item);
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new ManualSubraceActivity.ManualSubraceAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
+
+        dndApi = new DnDApi().createService();
+        Call<CharacterSubracesResult> call = dndApi.getCharacterSubraces();
+
+        call.enqueue(new Callback<CharacterSubracesResult>() {
+            @Override
+            public void onResponse(Call<CharacterSubracesResult> call, Response<CharacterSubracesResult> response) {
+                mAdapter.updateData(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<CharacterSubracesResult> call, Throwable t) {
+
+            }
+        });
         getIntent().setAction("Already created"); //important for navigation
     }
     public void changeTheme(String theme){
@@ -46,11 +96,75 @@ public class ManualSubraceActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
+    public class ManualSubraceAdapter extends RecyclerView.Adapter<ManualSubraceActivity.ManualSubraceAdapter.ManualSubraceViewHolder> {
+        private Context context;
+        private List<CharacterSubracesResultItem> classes = new ArrayList<>();
+
+        public ManualSubraceAdapter(Context context) {
+            this.context = context;
+        }
+
+        public void updateData(CharacterSubracesResult results) {
+            for (CharacterSubracesResultItem result : results.results) {
+                classes.add(result);
+            }
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getItemCount() {
+            return classes.size();
+        }
+
+        @Override
+        public ManualSubraceActivity.ManualSubraceAdapter.ManualSubraceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View view = inflater.inflate(R.layout.manual_item_card, parent, false);
+            return new ManualSubraceActivity.ManualSubraceAdapter.ManualSubraceViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(ManualSubraceActivity.ManualSubraceAdapter.ManualSubraceViewHolder holder, int position) {
+            CharacterSubracesResultItem cls = classes.get(position);
+            holder.vName.setText(cls.name);
+            String url = classes.get(position).url;
+            holder.classId = url.substring(url.length() - 1, url.length());
+        }
+
+        class ManualSubraceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+            protected String classId;
+            protected TextView vName;
+
+            public ManualSubraceViewHolder(View v) {
+                super(v);
+
+                vName = (TextView) v.findViewById(R.id.name);
+
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), ManualSubraceDetailActivity.class);
+                        intent.putExtra("classId", classId);
+                        v.getContext().startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        }
+    }
+
     @Override
     protected void onResume() {
         String action = getIntent().getAction();
         // Prevent endless loop by adding a unique action, don't restart if action is present
         if(action == null || !action.equals("Already created")) {
+            Log.v("Example", "Force restart");
             Intent intent = new Intent(this, ManualSubraceActivity.class);
             startActivity(intent);
             finish();
@@ -61,5 +175,4 @@ public class ManualSubraceActivity extends AppCompatActivity {
 
         super.onResume();
     }
-
 }

@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import cs496.dndcompanionapp.models.AbilityScore;
 import cs496.dndcompanionapp.models.CharacterClass;
 import cs496.dndcompanionapp.models.CharacterClassesResult;
+import cs496.dndcompanionapp.models.CharacterSpell;
+import cs496.dndcompanionapp.models.CharacterSpellsResult;
+import cs496.dndcompanionapp.models.CharacterSubclass;
+import cs496.dndcompanionapp.models.CharacterSubclassesResult;
+import cs496.dndcompanionapp.models.CharacterSubrace;
+import cs496.dndcompanionapp.models.CharacterSubracesResult;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -46,9 +52,20 @@ public class DnDApi {
 	public interface DnDApiService {
         @GET("classes")
         Call<CharacterClassesResult> getCharacterClasses();
-
+        @GET("subraces")
+        Call<CharacterSubracesResult> getCharacterSubraces();
+        @GET("spells")
+        Call<CharacterSpellsResult> getCharacterSpells();
+        @GET("subclasses")
+        Call<CharacterSubclassesResult> getCharacterSubclasses();
 		@GET("classes/{class}")
         Call<CharacterClass> getCharacterClass(@Path("class") String characterClass);
+        @GET("subraces/{subrace}")
+        Call<CharacterSubrace> getCharacterSubraces(@Path("subrace") String characterSubraces);
+        @GET("spells/{spell}")
+        Call<CharacterSpell> getCharacterSpells(@Path("spell") String characterSpells);
+        @GET("subclasses/{subclass}")
+        Call<CharacterSubclass> getCharacterSubclasses(@Path("subclass") String characterSpells);
 
         @GET("ability-scores/{score}")
         Call<AbilityScore> getAbilityScore(@Path("score") String abilityScore);
