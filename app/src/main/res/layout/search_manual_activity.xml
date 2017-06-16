@@ -28,17 +28,40 @@
         android:layout_height="wrap_content"
         android:text="Advanced Search" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/advSearchItemsLyt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_gravity="right">
 
-        <Spinner
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:labelFor="@id/searchTypeSpinner" />
+            <Spinner
+                android:id="@+id/searchTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/advSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="35dp"
+            android:text="Advanced Search" />
+
+    </RelativeLayout>
 
 
     <View
