@@ -10,60 +10,87 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import cs496.dndcompanionapp.models.AbilityScore;
+import cs496.dndcompanionapp.models.CharacterClass;
+import cs496.dndcompanionapp.models.CharacterClassesResult;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+
 
 public class DnDApi {
 	private final static String TAG = "";
 	
 	private final static String DND_SEARCH_BASE_URL = "http://dnd5eapi.co/api/";
-	
-	
-	public static String buildSearchURL (String query, String searchType) {
-		String url = DND_SEARCH_BASE_URL;
-		
-		switch(searchType) {
-			case "class": case "classes":
-				url = url + "classes/";
-				break;
-				
-			case "subclass": case "subclasses":
-				url = url + "subclasses/";
-				break;
-				
-			case "race": case "races":
-				url = url + "races/";
-				break;
-			
-			case "subrace": case "subraces":
-				url = url + "subraces/";
-				break;
-			
-			case "skills":
-				url = url + "skills/";
-				break;
-				
-			case "spell": case "spells":
-				url = url + "spells/";
-				//note: if looking for specific spell, must be an index.
-				break;
-				
-			case "proficiencies":
-				url = url + "proficiencies/";
-				//must cast as lowercase
-				//can search by class, index, or keyword (ie: armor, weapons)
-				break;
-				
-			case "languages":
-				url = url + "languages/";
-				break;
-				
-			case "equipment":
-				url = url + "equipment/";
-				break;
-			
-			default:
-				//Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
-				break;
-		}
-		return null;
+
+	public DnDApiService createService() {
+        HttpLoggingInterceptor log = new HttpLoggingInterceptor();
+        log.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(log);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(httpClient.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(DND_SEARCH_BASE_URL)
+                .build();
+
+        return retrofit.create(DnDApiService.class);
+    }
+
+	public interface DnDApiService {
+        @GET("classes")
+        Call<CharacterClassesResult> getCharacterClasses();
+
+		@GET("classes/{class}")
+        Call<CharacterClass> getCharacterClass(@Path("class") String characterClass);
+
+        @GET("ability-scores/{score}")
+        Call<AbilityScore> getAbilityScore(@Path("score") String abilityScore);
 	}
+
+	public enum CharacterClasses {
+        BARBARIAN("1"),
+        BARD("2"),
+        CLERIC("3"),
+        DRUID("4"),
+        FIGHTER("5"),
+        MONK("6"),
+        PALADIN("7"),
+        RANGER("8"),
+        ROGUE("9"),
+        SORCERER("10"),
+        WARLOCK("11"),
+        WIZARD("12");
+
+        private String value;
+
+        private CharacterClasses(String value) { this.value = value; }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+    public enum AbilityScores {
+        STR("1"),
+        DEX("2"),
+        CON("3"),
+        INT("4"),
+        WIS("5"),
+        CHA("6");
+
+        private String value;
+
+        private AbilityScores(String value) { this.value = value; }
+
+        public String getValue() {
+            return value;
+        }
+    }
 }
