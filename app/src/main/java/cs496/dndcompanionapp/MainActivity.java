@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button charBuilder = (Button)findViewById(R.id.goToChar);
         Button Manual = (Button)findViewById(R.id.goToManual);
+        Button monsterBuilder = (Button)findViewById(R.id.createMonster);
         charBuilder.setOnClickListener(this);
         Manual.setOnClickListener(this);
+        monsterBuilder.setOnClickListener(this);
         getIntent().setAction("Already created"); //important for navigation
 
 
@@ -41,12 +43,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.goToChar:
-                startActivity(new Intent(MainActivity.this, MonsterGenActivity.class));
+                startActivity(new Intent(MainActivity.this, CharacterBuilderActivity.class));
                 break;
 
             case R.id.goToManual:
                 startActivity(new Intent(MainActivity.this, ManualActivity.class));
                 break;
+
+            case R.id.createMonster:
+                startActivity(new Intent(MainActivity.this, MonsterGenActivity.class));
 
             default:
                 break;
