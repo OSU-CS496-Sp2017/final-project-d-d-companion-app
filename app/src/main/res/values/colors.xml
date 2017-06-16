@@ -2,6 +2,7 @@
 <resources>
 
     <color name="offGrey">#DBDDE0</color>
+    <color name="black">#000000</color>
 
     <color name="BardPrimary">#ff4500</color>
     <color name="BardSecondary">#eaa556</color>
