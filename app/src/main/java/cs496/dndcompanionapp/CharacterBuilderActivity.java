@@ -3,6 +3,7 @@ package cs496.dndcompanionapp;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +37,12 @@ public class CharacterBuilderActivity extends AppCompatActivity implements Share
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        changeTheme(sharedPreferences.getString(
+                getString(R.string.theme_key),
+                getString(R.string.theme_default)
+        ));
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.character_builder_activity);
@@ -113,6 +120,15 @@ public class CharacterBuilderActivity extends AppCompatActivity implements Share
         charName.setText(name);
 
         Log.d("Test", name);
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void changeTheme(String theme){
+        setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
     }
 
 }

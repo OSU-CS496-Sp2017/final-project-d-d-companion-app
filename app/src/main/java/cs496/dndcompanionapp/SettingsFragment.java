@@ -1,17 +1,10 @@
 package cs496.dndcompanionapp;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.preference.EditTextPreference;
 import android.support.v7.preference.PreferenceFragmentCompat;
-import android.util.Log;
 
-import static cs496.dndcompanionapp.R.attr.colorPrimaryDark;
 
 /**
  * Created by brandon on 6/4/2017.
@@ -21,14 +14,11 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-
-        Log.d("TAG","In onCreatePreferences");
         addPreferencesFromResource(R.xml.prefs);
     }
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("TAG","In onResume");
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -40,13 +30,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (key.equals(getString(R.string.theme_key))) {
-            Log.d("TAG", "Value of key:  "+ getString(R.string.theme_key));
-            Log.d("TAG","In onSharedPreferenceChanged");
+        if (key.equals(getString(R.string.theme_key)))
             run(); //recreates activity after change
-
-
-        }
     }
 
     public void run() {
