@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#AARRGGBB</color>
+
     <color name="BardPrimary">#ff4500</color>
     <color name="BardSecondary">#eaa556</color>
     <color name="BardAccent">#FF4081</color>
@@ -59,6 +64,5 @@
     <color name="WizardSecondary">#ce2029</color>
     <color name="WizardAccent">#FF4081</color>
     <color name="WizardBackground">#20ce6e</color>
-
 
 </resources>

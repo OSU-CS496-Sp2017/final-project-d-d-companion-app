@@ -61,6 +61,29 @@
         <item>Choose Language</item>
     </string-array>
 
+    <string-array name="alignmentArray">
+        <item>Alignment</item>
+        <item>Lawful Good</item>
+        <item>Neutral Good</item>
+        <item>Chaotic Good</item>
+        <item>Lawful Neutral</item>
+        <item>True Neutral</item>
+        <item>Chaotic Neutral</item>
+        <item>Lawful Evil</item>
+        <item>Neutral Evil</item>
+        <item>Chaotic Evil</item>
+    </string-array>
+
+    <string-array name="searchChoices">
+        <item>Class</item>
+        <item>Subclass</item>
+        <item>Race</item>
+        <item>Subrace</item>
+        <item>Language</item>
+        <item>Skill</item>
+        <item>Spell</item>
+        <item>Proficiency</item>
+    </string-array>
 
 
     <string name="pref_race_title">Race</string>
@@ -109,4 +132,5 @@
     <string name="pre_exotic_f_language_key">language_key</string>
     <string name="abyssal">Abyssal</string>
     <string name="pref_exotic__language_default">abyssal</string>
+
 </resources>

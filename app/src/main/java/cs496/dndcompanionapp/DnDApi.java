@@ -1,3 +1,5 @@
+package cs496.dndcompanionapp;
+
 import android.net.Uri;
 import android.util.Log;
 
@@ -59,7 +61,7 @@ public class DnDApi {
 				break;
 			
 			default:
-				Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
+				//Log.d(TAG, "DnDApi.buildSearchURL: invalid searchType.");
 				break;
 		}
 		return null;
