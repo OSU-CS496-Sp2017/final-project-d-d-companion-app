@@ -162,20 +162,20 @@ public class ManualClassActivity extends AppCompatActivity {
         }
     }
 
-        @Override
-        protected void onResume() {
-            String action = getIntent().getAction();
-            // Prevent endless loop by adding a unique action, don't restart if action is present
-            if(action == null || !action.equals("Already created")) {
-                Log.v("Example", "Force restart");
-                Intent intent = new Intent(this, ManualClassActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            // Remove the unique action so the next time onResume is called it will restart
-            else
-                getIntent().setAction(null);
-
-            super.onResume();
+    @Override
+    protected void onResume() {
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if(action == null || !action.equals("Already created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = new Intent(this, ManualClassActivity.class);
+            startActivity(intent);
+            finish();
         }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
+    }
 }
