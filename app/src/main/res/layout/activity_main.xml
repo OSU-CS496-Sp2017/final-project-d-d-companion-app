@@ -4,8 +4,21 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/searchManual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Manual" />
+
+    <Button
         android:id="@+id/goToChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Create New Character Sheet" />
+
+    <Button
+        android:id="@+id/createMonster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create New Monster" />
+
 </LinearLayout>
