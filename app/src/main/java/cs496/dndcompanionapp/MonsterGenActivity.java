@@ -96,7 +96,7 @@ public class MonsterGenActivity extends AppCompatActivity{
         String action = getIntent().getAction();
         // Prevent endless loop by adding a unique action, don't restart if action is present
         if(action == null || !action.equals("Already created")) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MonsterGenActivity.class);
             startActivity(intent);
             finish();
         }
