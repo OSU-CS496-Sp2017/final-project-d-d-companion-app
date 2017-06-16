@@ -66,6 +66,9 @@ public class ManualRaceDetailActivity extends AppCompatActivity {
                     name.setText(response.body().name);
                     alignment.setText(response.body().alignment);
                     age.setText(response.body().age);
+                    size.setText(response.body().size);
+                    sizeDesc.setText(response.body().sizeDescription);
+                    langDesc.setText(response.body().languageDescription);
                 }
 
                 @Override
