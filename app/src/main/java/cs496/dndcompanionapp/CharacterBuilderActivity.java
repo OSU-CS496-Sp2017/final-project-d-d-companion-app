@@ -86,7 +86,7 @@ public class CharacterBuilderActivity extends AppCompatActivity implements Share
             }
 
         });
-
+        getIntent().setAction("Already created"); //important for navigation
     }
 
     @Override
@@ -123,6 +123,24 @@ public class CharacterBuilderActivity extends AppCompatActivity implements Share
     }
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
+    }
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if(action == null || !action.equals("Already created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
     }
 
 }

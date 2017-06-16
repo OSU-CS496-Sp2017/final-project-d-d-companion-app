@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TabHost tabHost;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button Manual = (Button)findViewById(R.id.goToManual);
         charBuilder.setOnClickListener(this);
         Manual.setOnClickListener(this);
+        getIntent().setAction("Already created"); //important for navigation
 
 
     }
@@ -63,10 +65,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    @Override
+    protected void onResume() {
+        Log.v("Example", "onResume");
+
+        String action = getIntent().getAction();
+        // Prevent endless loop by adding a unique action, don't restart if action is present
+        if(action == null || !action.equals("Already created")) {
+            Log.v("Example", "Force restart");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        // Remove the unique action so the next time onResume is called it will restart
+        else
+            getIntent().setAction(null);
+
+        super.onResume();
     }
 
     public void changeTheme(String theme){
