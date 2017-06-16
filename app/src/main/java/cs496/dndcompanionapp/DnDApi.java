@@ -55,6 +55,8 @@ public class DnDApi {
         Call<SkillResult> getCharacterSkills();
         @GET("subclasses")
         Call<CharacterSubclassesResult> getCharacterSubclasses();
+        @GET("proficiencies")
+        Call<ProficiencyResult> getCharacterProficiencies();
 
 		@GET("classes/{class}")
         Call<CharacterClass> getCharacterClass(@Path("class") String characterClass);
@@ -71,6 +73,12 @@ public class DnDApi {
 
         @GET("ability-scores/{score}")
         Call<AbilityScore> getAbilityScore(@Path("score") String abilityScore);
+        @GET("proficiencies/{proficiency}")
+        Call<Proficiency> getCharacterProficiency(@Path("proficiency") String proficiency);
+        @GET("startingequipment/{id}")
+        Call<StartingEquipment> getCharacterStartingEquipment(@Path("id") String classId);
+        @GET("equipment/{id}")
+        Call<Equipment> getEquipment(@Path("id") String equipmentId);
 	}
 
 	public enum CharacterClasses {

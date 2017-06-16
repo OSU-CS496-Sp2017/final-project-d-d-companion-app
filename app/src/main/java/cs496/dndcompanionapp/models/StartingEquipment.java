@@ -1,5 +1,7 @@
 package cs496.dndcompanionapp.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  */
 
 public class StartingEquipment {
-    String _id;
-    String index;
-    List<Equipment> startingEquipment;
+    public String _id;
+    public String index;
+    @SerializedName("starting_equipment") public List<StartingEquipmentResultItem> startingEquipment;
 }

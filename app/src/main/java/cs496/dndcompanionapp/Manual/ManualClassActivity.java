@@ -133,7 +133,7 @@ public class ManualClassActivity extends AppCompatActivity {
             CharacterClassesResultItem cls = classes.get(position);
             holder.vName.setText(cls.name);
             String url = classes.get(position).url;
-            holder.classId = url.substring(url.length() - 1, url.length());
+            holder.classId = url.split("http://www.dnd5eapi.co/api/classes/")[1];
         }
 
         class ManualClassItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
