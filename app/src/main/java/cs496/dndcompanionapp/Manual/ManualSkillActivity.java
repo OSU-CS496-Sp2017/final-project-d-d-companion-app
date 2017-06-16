@@ -93,7 +93,7 @@ public class ManualSkillActivity extends AppCompatActivity {
         }
     }
 
-    public class ManualSkillAdapter extends RecyclerView.Adapter<ManualSkillItemViewHolder> {
+    public class ManualSkillAdapter extends RecyclerView.Adapter<ManualSkillAdapter.ManualSkillItemViewHolder> {
         private Context context;
         private List<SkillResultItem> skills = new ArrayList<>();
 
