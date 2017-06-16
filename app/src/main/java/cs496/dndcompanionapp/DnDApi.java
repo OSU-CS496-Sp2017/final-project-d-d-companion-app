@@ -95,6 +95,20 @@ public class DnDApi {
             return value;
         }
     }
+    public enum CharacterRaces {
+        DWARF("1"),
+        ELF("2"),
+        Halfling("3"),
+        Human("4");
+
+        private String value;
+
+        private CharacterRaces(String value) { this.value = value; }
+
+        public String getValue() {
+            return value;
+        }
+    }
 
     public enum AbilityScores {
         STR("1"),
