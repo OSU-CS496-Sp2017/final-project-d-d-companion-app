@@ -1,16 +1,19 @@
-package cs496.dndcompanionapp;
+package cs496.dndcompanionapp.Manual;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.LoaderManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import cs496.dndcompanionapp.MainActivity;
+import cs496.dndcompanionapp.R;
+import cs496.dndcompanionapp.SettingsActivity;
 
 /**
  * Created by brandon on 6/16/2017.
@@ -100,7 +103,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
         // Prevent endless loop by adding a unique action, don't restart if action is present
         if(action == null || !action.equals("Already created")) {
             Log.v("Example", "Force restart");
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ManualActivity.class);
             startActivity(intent);
             finish();
         }

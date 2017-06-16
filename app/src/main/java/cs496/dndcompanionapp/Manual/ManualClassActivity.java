@@ -1,4 +1,4 @@
-package cs496.dndcompanionapp;
+package cs496.dndcompanionapp.Manual;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,14 +16,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cs496.dndcompanionapp.models.AbilityScore;
-import cs496.dndcompanionapp.models.CharacterClass;
+import cs496.dndcompanionapp.DnDApi;
+import cs496.dndcompanionapp.MainActivity;
+import cs496.dndcompanionapp.R;
+import cs496.dndcompanionapp.SettingsActivity;
 import cs496.dndcompanionapp.models.CharacterClassesResult;
 import cs496.dndcompanionapp.models.CharacterClassesResultItem;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Path;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,6 +77,7 @@ public class ManualClassActivity extends AppCompatActivity {
 
             }
         });
+        getIntent().setAction("Already created"); //important for navigation
     }
     public void changeTheme(String theme){
         setTheme(getResources().getIdentifier(theme, "style", getPackageName()));
@@ -96,22 +99,7 @@ public class ManualClassActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    @Override
-    protected void onResume() {
-        String action = getIntent().getAction();
-        // Prevent endless loop by adding a unique action, don't restart if action is present
-        if(action == null || !action.equals("Already created")) {
-            Log.v("Example", "Force restart");
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-        // Remove the unique action so the next time onResume is called it will restart
-        else
-            getIntent().setAction(null);
 
-        super.onResume();
-    }
 
     public class ManualClassAdapter extends RecyclerView.Adapter<ManualClassAdapter.ManualClassItemViewHolder> {
         private Context context;
@@ -174,4 +162,20 @@ public class ManualClassActivity extends AppCompatActivity {
         }
     }
 
+        @Override
+        protected void onResume() {
+            String action = getIntent().getAction();
+            // Prevent endless loop by adding a unique action, don't restart if action is present
+            if(action == null || !action.equals("Already created")) {
+                Log.v("Example", "Force restart");
+                Intent intent = new Intent(this, ManualClassActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            // Remove the unique action so the next time onResume is called it will restart
+            else
+                getIntent().setAction(null);
+
+            super.onResume();
+        }
 }

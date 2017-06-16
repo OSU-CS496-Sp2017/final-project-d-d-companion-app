@@ -29,36 +29,36 @@
             android:label="Monster Generator">
         </activity>
         <activity
-            android:name="ManualActivity"
+            android:name=".Manual.ManualActivity"
             android:label="Quick Reference">
         </activity>
         <activity
-            android:name="ManualClassActivity"
+            android:name=".Manual.ManualClassActivity"
             android:label="Classes">
         </activity>
         <activity
-            android:name=".ManualClassItemDetailActivity"
+            android:name=".Manual.ManualClassItemDetailActivity"
             android:label="Class Detail">
         </activity>
 
         <activity
-            android:name="ManualSubclassActivity"
+            android:name=".Manual.ManualSubclassActivity"
             android:label="Subclasses">
         </activity>
         <activity
-            android:name="ManualRaceActivity"
+            android:name=".Manual.ManualRaceActivity"
             android:label="Races">
         </activity>
         <activity
-            android:name="ManualSubraceActivity"
+            android:name=".Manual.ManualSubraceActivity"
             android:label="Subraces">
         </activity>
         <activity
-            android:name="ManualSkillActivity"
+            android:name=".Manual.ManualSkillActivity"
             android:label="Skills">
         </activity>
         <activity
-            android:name="ManualSpellActivity"
+            android:name=".Manual.ManualSpellActivity"
             android:label="Spells">
         </activity>
         <activity
